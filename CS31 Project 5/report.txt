@@ -1,0 +1,47 @@
+a. The most notable problem I had was detecting planets. I eventually decided to just change the probe word's stars and planets into characters that didn't count as letters '*' for stars and '-' for planets so that it wouldn't try and repeat the number of planets counted. 
+
+b. 
+int main()
+{
+declare an array to hold all the words in
+declare an array for the file 
+use getWords to fill array with words 
+
+if the number of words is not postive
+	cancels program 
+else asks how many rounds 
+	if the number of rounds isn't postive 
+		cancels the program
+	plays game using a for loop that counts the number of rounds
+		gets a random number 
+		declares array for the cstring to be in 
+		copies the word corresponding to the number into the cstring
+		outputs the length of the word
+		gets score using runOneRound
+		prints out how many times it took to finish 
+		calculates average and min/max
+}
+
+int runOneRound()
+{
+if there are no words or if the random number is bigger than the elements in the array of random words
+	return -1 
+
+using a for to run until a score is returned 
+	gets probe word
+	checks if the word is 4 to 6 letters long 
+	checks if all the characters are lowercase
+	checks if the word is in the file by going through the whole file and matching 
+	
+	checks for stars by running through the probe word to see if any of the characters match at the same position 
+		changes that letter in the probe word to * so it doesnt get mistaken for a planet 
+
+	if the number of stars is the length of the word, then it returns the score 
+
+	checks for planets using 2 for loops to run through both words to match 
+		changes letter to - and breaks out of one loop and moves onto the next character so it doesn't repeat planets
+	
+	outputs number of stars and planets and adds to the score and loops again 
+}
+
+

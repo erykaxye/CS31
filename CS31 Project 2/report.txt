@@ -1,0 +1,9 @@
+a. I didn't know until lecture on Monday that I couldn't use two boolean in one if statement (eg. if (0 <= n <= 1)) and the if statement would always be true, which wasn't what I intended. In the end, i just left the 2nd boolean and let the negative slip until the end where I had another condition. 
+
+b. 
+(13, y, City A, 1) Younger than 18 and a student that crosses only 1 zone (with the discount). 
+(21, y, City A, 1) Older than 18, but still a student with the discount. 
+(25, n, City A, 2) Pays regular price. 
+(65, y, City A, 1) Pays with student discount rather than senior price. 
+(65, n, City A, 0) Pays with senior discount when traveling less than 1 zone. 
+(65, n, City A, 2) Pays regular senior price. 

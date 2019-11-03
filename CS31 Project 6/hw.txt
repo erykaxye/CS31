@@ -1,0 +1,187 @@
+1a. 
+int main()
+{
+	int arr[3] = { 5, 10, 15 };
+	int* ptr = arr; //basically says its equal to &arr[0]
+	
+	*ptr = 30;          // set arr[0] to 30 so arr[0] = 30 
+	ptr[1] = 20;     // set arr[1] to 20 
+	ptr[2] = 10;        // set arr[2] to 10
+
+	while (ptr <= arr + 2) //opposite 
+	{
+		cout << *ptr << endl;    // print values
+		ptr++; //increment bc opposite 
+	}
+}
+
+1b. 
+Have to pass the pointer by reference or else a copy is changed and not the original pointer. 
+void findMax(int arr[], int n, int* &pToMax)
+{
+	if (n <= 0)
+		return;      // no items, no maximum!
+
+	pToMax = arr;
+
+	for (int i = 1; i < n; i++)
+	{
+		if (arr[i] > *pToMax)
+			pToMax = arr + i;
+	}
+}
+
+int main()
+{
+	int nums[4] = { 5, 3, 15, 6 };
+	int* ptr;
+
+	findMax(nums, 4, ptr);
+	cout << "The maximum is at address " << ptr << endl;
+	cout << "It's at position " << ptr - nums << endl;
+	cout << "Its value is " << *ptr << endl;
+}
+
+1c. 
+The pointer is declared but it doesn't point to anything, so you have to create an integer (like 5) and initialize the pointer to it. 
+void computeCube(int n, int* ncubed)
+{
+	*ncubed = n * n * n;
+}
+
+int main()
+{
+	int i = 5;
+	int* ptr = &i;
+	computeCube(i, ptr);
+	cout << "Five cubed is " << *ptr << endl;
+}
+
+1d. 
+You have to compare pointers instead of array because the older program was only comparing the original address of the arrays and not the content (which would always be false). Change every array to a pointer to an array except the str1++/str2++ because we use the pointer to point at higher values of the array. 
+   // return true if two C strings are equal
+bool strequal(const char* str1, const char* str2)
+{
+	while (*str1 != 0 && *str2 != 0)
+	{
+		if (*str1 != *str2)  // compare corresponding characters
+			return false;
+		str1++;            // advance to the next character
+		str2++;
+	}
+	return *str1 == *str2;   // both ended at same time?
+}
+
+int main()
+{
+	char a[15] = "Zhou";
+	char b[15] = "Zhu";
+
+	if (strequal(a, b))
+		cout << "They're the same person!\n";
+}
+
+1e. 
+The program is using a local arry anArray in getPtrToArray so when it leaves the function, anArray no longer has any useful values because they were deleted, so when the program tries to use the values again it gets undefined values. 
+
+2. 
+a. double* cat;
+b. double mouse[5]; 
+c. cat = mouse + 4; //cat* = mouse[5]; ?? or cat = &mouse[4]
+d. cat* = 25; 
+e. *(mouse + 3) = 42; 
+f. cat -= 3; Move the cat pointer back by three doubles.
+g. cat[1] = 54;
+h. cat[0] = 27;
+i. bool b = *cat == *(cat + 1); //no star in bool? 
+j. bool d = *cat == mouse[0]; //have to add [0]
+
+3a. 
+    double mean(const double* scores, int numScores)
+    {
+        const double* ptr = scores;
+        double tot = 0;
+        while (ptr != scores + numScores)
+        {
+            tot += *ptr;
+            ptr++;
+        }
+        return tot/numScores;
+    }
+
+4. 
+#include <iostream>
+using namespace std;
+
+//returns the greater pointer position 
+int* maxwell(int* a, int* b)
+{
+     if (*a > *b)
+         return a;
+     else
+         return b;
+}
+
+//swaps the addresses (not values) and doesn't change the output  
+void swap1(int* a, int* b)
+{
+     int* temp = a;
+     a = b;
+     b = temp;
+}
+
+//swaps the values 
+void swap2(int* a, int* b)
+{
+     int temp = *a;
+     *a = *b;
+     *b = temp;
+}
+
+int main()
+{
+     int array[6] = { 5, 3, 4, 17, 22, 19 };
+
+     int* ptr = maxwell(array, &array[2]); //compares 5 and 4 and sets ptr to address of 5 (&array[0]) 
+     *ptr = -1; //sets &array[0] = -1 
+     ptr += 2; //moves the pointer up to point at &array[2]
+     ptr[1] = 9; //makes &array[3] = 9 
+     *(array+1) = 79; //makes &array[1] = 79 
+
+     cout << &array[5] - ptr << endl; //prints out the difference between 5 and 2 because the pointer is pointing at &array[2] so &array[5] - &array[2] = 3 
+
+     swap1(&array[0], &array[1]); //swaps addresses of &array[0] and &array[1] 
+     swap2(array, &array[2]); //swaps -1 and 4 
+
+     for (int i = 0; i < 6; i++) //loops through the modified array and prints out every value in a new line 
+        cout << array[i] << endl; 
+} 
+
+output: 
+3
+4
+79
+-1
+9
+22
+19
+
+5. 
+void removeS(char* str)
+{
+	char* des = str;
+
+	while (*str)
+	{
+		if (*str == 's' || *str == 'S')
+			str++; 
+		else
+		{
+			*des = *str;
+			des++;
+			str++;
+		}
+	}
+
+	*des = 0;
+}

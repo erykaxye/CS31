@@ -1,0 +1,80 @@
+1. 
+endlendl
+grendel 
+
+2.
+The user inputs a number and the program outputs one "#" and goes to the next line, and keeps outputting an increasing number of "#" per row until the number of "#" outputted per row is the same as the number the user inputted. 
+
+3.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int side;
+
+	cout << "Enter a number: ";
+	cin >> side;
+
+	for (int i = 0; i < side; i++)
+	{
+		int j = i;
+		while (j >= 0)
+		{
+		    cout << "#";
+		    j--;
+		}
+		cout << "\n";
+	 }
+}
+
+4. 
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int side;
+
+	cout << "Enter a number: ";
+	cin >> side;
+
+	if (side >= 0)
+	{
+		int i = 0;
+		do
+		{
+			int j = i;
+			while (j >= 0)
+			{
+				cout << "#";
+				j--;
+			}
+			cout << "\n";
+			i++;
+		} while (i < side);
+	}
+	else
+		cout << "Please input a positive number." << endl; 
+}
+
+5. 
+switch (codeSection)
+	{
+	case 281:
+		cout << "bigamy";
+		break;
+	case 321:
+	case 322:
+		cout << "selling illegal lottery tickets";
+		break;
+	case 383:
+		cout << "selling rancid butter";
+		break;
+	case 598:
+		cout << "wounding a bird in a public cemetery";
+		break;
+	default:
+		cout << "some other crime";
+		
+	}

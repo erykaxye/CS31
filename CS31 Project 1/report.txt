@@ -1,0 +1,13 @@
+Briefly discuss any error messages the compiler reported, and incorrect, unusual, or nonsensical results. 
+
+5. I inputted total: 100, agree: 50, and disagree: 100
+So the output was that 50% agreed and 100% disagreed, which doesn't add up to the total. 
+
+6. logic_error.cpp
+I added parenthesis to the formula 
+double pctApprove = 100.0 * (numApprove / numSurveyed);
+making the output 0% say they approve even if there was a integer inputted. 
+
+7. compile_error.cpp
+I misspelled std to sdt, so the namespace wasn't declared and cout, cin, and endl were not declared. 
+I deleted a semicolon in line 9, so the next integer was not declared. 

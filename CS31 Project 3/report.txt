@@ -1,0 +1,55 @@
+a. 
+I had a hard time with the length of my code. I was repeating code, but I didn't know how to condense it without messing up everything else, so I just kept going. 
+Another thing was how to approach the program. I had to think about it for a long time and I completely scrapped my code once. I eventually got used to the concept and after that, the way to program was pretty clear, but I had already started so my code became really long. 
+
+
+
+b. 
+Program runs encodeSong
+calls hasCorrectSyntax
+	hasCorrectSyntax splits the song into beats 
+	isBeat tells if the format is correct  
+If correct 
+	program checks for each beat and increases a counter for each beat 
+	If the beat is a rest
+		add a space to instructions 
+	Otherwise continue to check if the input is a chord or a note 
+	If it's a chord 
+		splitChord separates the chord into notes 
+		formatNote encodes the note 
+		If formatNote returns a space 
+			badBeat is changed into the counter
+			instructions is returned to its original value
+			encodeSong returns a 2. 
+		Else the note is then added to instructions with brackets. 
+	If the beat is a note 
+		formatNote adds the note into instructions. 
+If its all encoded and playable, the function returns 0. 
+Else if it doesn't have correct syntax, the program returns 1.
+
+
+
+c. 
+A no slash
+A/ correct note with slash
+A4/ default octave 
+Z/ out of bounds of letter
+3/ no letter
+#/ no letter 
+A##/ double accidental
+A33/ number out of bounds 
+A#/ correct note with accidental in default octave 
+A#3/ correct note with accidental in 3rd octave
+A3/ correct not in octave with no accidental 
+A3#/ incorrect format
+A9/ not playable 
+/ empty beat 
+// two empty beats
+AA/ chord
+A#A#/ more complicated chord 
+//A#// more spaces 
+A//F/ notes and rests 
+A/A/A4#AG/ incorrect format with more beats in a chord
+
+
+

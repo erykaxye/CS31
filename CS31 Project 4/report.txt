@@ -1,0 +1,37 @@
+I got confused on how to start the split function without creating a completely new array and without knowing the number of elements to switch beforehand. But I realized that I could use something like my flip function that used the switched the last and first elements. 
+
+
+Tests: 
+string a[6] = {"clark", "peter", "diana", "tony", "selina", "sue"};
+a[], n = -1 //test for bad arguments 
+a[], n = 6, !!! //test appendToAll function 
+a[], n = 6, clark //test lookup function
+a[], n = 6, erica //test for element not in array for lookup 
+a[], n = 6 //test postionOfMax element function 
+a[], n = 0 //test postionOfMax with no elements
+a[], n = 6, 3 //test rotateLeft function 
+a[], n = 6, 0 //test rotateLeft where there's no elements to rotate
+a[], n = 1, 5 //test rotateLeft where position is bigger than elements, also no elements 
+a[], n = 6 //test countRuns
+a[], n = 0 //test countRuns with no elements  
+a[], n = 1 //test countRuns with only one element 
+a[], n = 6 //test flip 
+a[], n = 0 //test if no elements 
+a[], n = 1 //test flip if theres only 1 element 
+string a1[6] = { "bruce", "steve", "", "tony", "sue", "clark" };
+string a2[5] = { "bruce", "steve", "clark", "", "tony" };
+a1[], n1 = 6, a2[], n2 = 5 //test differ 
+a1[], n1 = 2, a2[], n2 = 2 //test differ if all elements are the same
+a1[], n1 = 6, a2[], n2 = 2 //test subsequence 
+a1[], n1 = 6, a2[], n2 = 1 //test subsquence if only 1 element in n2
+a1[], n1 = 6, a2[], n2 = 0 //test subsquence if no elements in n2 
+a1[], n1 = 6, a2[], n2 = 5 //test subsquence of theres no matches 
+a1[], n1 = 6, a2[], n2 = 5 //test lookupAny 
+string a3[1] = {"erica"}; 
+a1[], n1 = 6, a3[], n2 = 1 //test lookupAny if none match 
+a[], 5, erica //test split 
+a[], 5, tony //test split with one of the values in the array 
+
+
+
+
